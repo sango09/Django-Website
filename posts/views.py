@@ -53,7 +53,7 @@ def posts_update(request, slug):
 	context = {
 		'form': form
 	}
-	return render(request, "posts/posts_update.html", context)
+	return render(request, "posts/posts_create.html", context)
 
 
 def posts_delete(request, slug):
