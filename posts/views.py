@@ -41,6 +41,19 @@ def posts_create(request):
 	return render(request, "posts/posts_create.html", context)
 
 
+def posts_update(request, slug):
+	unique_post = get_object_or_404(Post, slug=slug)
+	form = PostModelForm(request.POST or None,
+						request.FILES or None,
+						instance=unique_post)
+	if form.is_valid():
+		form.save()
+		return redirect('/posts/')
+
+	context = {
+		'form': form
+	}
+	return render(request, "posts/posts_update.html", context)
 
 
 
