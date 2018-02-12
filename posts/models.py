@@ -10,9 +10,9 @@ User = settings.AUTH_USER_MODEL
 class Post(models.Model):
 	title = models.CharField(max_length=120)
 	description = models.TextField()
-	author = models.OneToOneField('Author')
+	author = models.ForeignKey('Author')
 	image = models.ImageField()
-	slug = models.SlugField() #posts/1/ --> /posts/first/
+	slug = models.SlugField(unique=True) #posts/1/ --> /posts/first/
 
 	def __str__(self):
 		return self.title
