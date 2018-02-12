@@ -1,10 +1,9 @@
 
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
-from posts.views import posts_list
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^posts/', posts_list),
+    url(r'^posts/', include('posts.urls')),
 ]

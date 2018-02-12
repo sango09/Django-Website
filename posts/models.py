@@ -12,7 +12,7 @@ class Post(models.Model):
 	description = models.TextField()
 	author = models.OneToOneField('Author')
 	image = models.ImageField()
-	slug = models.SlugField()
+	slug = models.SlugField() #posts/1/ --> /posts/first/
 
 	def __str__(self):
 		return self.title
